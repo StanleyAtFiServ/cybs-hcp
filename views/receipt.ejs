@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/receipt.css">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        .receipt-container { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; }
+        .receipt-header { text-align: center; margin-bottom: 20px; }
+        .receipt-details { margin-bottom: 20px; }
+        .receipt-row { display: flex; margin-bottom: 10px; }
+        .receipt-label { font-weight: bold; width: 150px; }
+        .status-completed { color: green; }
+        .status-failed { color: red; }
+    </style>
+</head>
+<body>
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h1>Payment Receipt</h1>
+            <p>Thank you for your payment!</p>
+        </div>
+
+        <div class="receipt-details">
+            <div class="receipt-row">
+                <span class="receipt-label">Transaction ID:</span>
+                <span><%= transaction.txn_id %></span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Amount:</span>
+                <span><%= transaction.amount %> <%= transaction.currency %></span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Status:</span>
+                <span class="status-<%= transaction.status %>">
+                    <%= transaction.status.toUpperCase() %>
+                </span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Date:</span>
+                <span><%= transaction.date %></span>
+            </div>
+        </div>
+
+        <div class="receipt-footer">
+            <p>If you have any questions, please contact our support team.</p>
+            <a href="/" class="btn">Return Home</a>
+        </div>
+    </div>
+</body>
+</html>
