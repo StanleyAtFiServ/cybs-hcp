@@ -8,9 +8,11 @@ const GPAY_BUTTON_CONTAINER_ID = 'gpay-container';
 // Update the `merchantId` and `merchantName` properties with your own values.
 // Your real info is required when the environment is `PRODUCTION`.
 const merchantInfo = {
-  merchantId: 'fiservhk_000005739184620001',
-  merchantName: 'FiServ HK Office'
+  merchantId: environment.merchantId,  // Required for PRODUCTION environment
+  merchantName: environment.merchantName  // Required for both environments, but can be the same as merchantId for TEST environment
 };
+
+
 
 // This is the base configuration for all Google Pay payment data requests.
 const baseGooglePayRequest = {
@@ -35,7 +37,7 @@ const baseGooglePayRequest = {
         type: 'PAYMENT_GATEWAY',
         parameters: {
           gateway: 'cybersource',
-          gatewayMerchantId: 'fiservhk_000005739184620001'
+          gatewayMerchantId: environment.merchantId,  // Your Cybersource merchant ID, which is the same as your organization ID
         }
       }
     }
@@ -86,8 +88,8 @@ function renderGooglePayButton() {
 //=============================================================================
 
 function onGooglePayLoaded() {
-    const req = deepCopy(baseGooglePayRequest);
 
+    const req = deepCopy(baseGooglePayRequest);
     // STEP_6.2 : Determine if GPay support current device/browser
     getGooglePaymentsClient()
       .isReadyToPay(req)

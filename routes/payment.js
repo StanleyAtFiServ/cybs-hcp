@@ -6,13 +6,19 @@ const security = require('../middleware/security');
 
 // Render payment form
 router.get('/', (req, res) => {
+
+    console.log('organization id: ' + process.env.ORGANIZATION_ID);
     res.render(
-        'payment_form', 
+        'payment_form',         // Render the payment_form.ejs template
         {
             transactionUuid: uniqid(),
             signedDateTime: getGMTDateString(),
             accessKey: security.getAccessKey(), 
-            profileId: security.getProfileId() 
+            profileId: security.getProfileId(),
+            organizationId: process.env.ORGANIZATION_ID,
+            organizationName: process.env.ORGANIZATION_NAME
+ 
+
         }
     );
 });
@@ -39,7 +45,7 @@ router.get('/receipt', (req, res) => {
     const transactionData = {
         txn_id: req.query.txn_id || 'N/A',
         amount: req.query.amount || 'N/A',
-        currency: req.query.currency || 'USD',
+        currency: req.query.currency || 'MAD',
         status: req.query.status || 'completed',
         date: new Date().toLocaleString()
     };
