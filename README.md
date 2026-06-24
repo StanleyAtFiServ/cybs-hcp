@@ -1,26 +1,34 @@
 -----Instruction---HOSTED CHECKOUT PAGE (HCP)---
 
 0. The credential of your organization ID is at <project folder>/Resources/<organization id>
+
 	a.	<organization id>-<key id>-cert.p12 : For restful API JWT authentication
-	b.	<organization id>-<key id>-mle.p12 : For restful API response decryption 
+
+	b.	<organization id>-<key id>-mle.p12 : For restful API response decryption
+
 	c.	<organization id>-http-sign.pem : For restful API http signature authentication
+
 			-Key: 8d579ef1-XXXX-XXXX-XXXX-6b43e81250d5
+   
 			-Shared Secret Key: 5usSLX..WD..MSCX...rLw+...qlhTYcYsOBKR9aA=
+   
 	d.	<organization id>-accessKey : For hosted checkout page
+
 	e.	<organization id>-keySecret : For hosted checkout page
+
 	f.	<organization id>-profile-id : For hosted checkout page
 
-1. On VSCode, open cybs-hcp folder
-2. Modify the .env file to set the values of 
-	ORGANIZATION_ID=
-	ORGANIZATION_NAME=
-	SECRET_KEY=
-	ACCESS_KEY=
-	PROFILE_ID=
-3. On VSCode, open terminal with selecting 'cmd' mode, run "npm install"
-4. Select hcp.js file, then at pull-down menu : Run->Start Debugging or Run->Start without debugging
-5. Open browser to address http://localhost:3000
-6. A web portal allow you to run cybs-hcp or google pay to get the tokenization data.
+2. On VSCode, open cybs-hcp folder
+3. Modify the .env file to set the values of 
+	ORGANIZATION_ID /
+	ORGANIZATION_NAME /
+	SECRET_KEY /
+	ACCESS_KEY /
+	PROFILE_ID 
+4. On VSCode, open terminal with selecting 'cmd' mode, run "npm install"
+5. Select hcp.js file, then at pull-down menu : Run->Start Debugging or Run->Start without debugging
+6. Open browser to address http://localhost:3000
+7. A web portal allow you to run cybs-hcp or google pay to get the tokenization data.
 (The Gpay is only for getting tokenization data, you should submit to cybs for authorization via api
 	Sample nodejs api file : digital-payment-googlepay.js)
 
