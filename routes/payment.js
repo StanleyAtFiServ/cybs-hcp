@@ -2,7 +2,7 @@
 const crypto = require('crypto');
 const express = require('express');
 const router = express.Router();
-const security = require('../middleware/security');
+const security = require('../security');
 
 // Render payment form
 router.get('/', (req, res) => {

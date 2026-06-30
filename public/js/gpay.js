@@ -133,7 +133,7 @@ function onGooglePayLoaded() {
 
         console.log("-EncB64Data-");
         console.log(b64EncPayData);
-        document.getElementById("idB64EncText").innerText = 'Payment tokenization data for paymentInformation.fluidData.value \n' + b64EncPayData;
+        document.getElementById("idB64EncText").innerText = b64EncPayData;
       })
       .catch(console.error);
   }

@@ -2,7 +2,7 @@ const crypto = require('crypto');
 
 const secretKey = process.env.SECRET_KEY;
 const accessKey = process.env.ACCESS_KEY;
-const profileId = process.env.PROFILE_ID;
+const profileId = process.env.HCP_PROFILE_ID;
 
 function sign(params) {
  
